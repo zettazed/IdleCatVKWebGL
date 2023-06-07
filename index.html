@@ -117,7 +117,7 @@
         })
         .then( (data) => {
           // Запись отправлена на стену
-          unityInstance.SendMessage('VKManager', 'GiveMoney50000', JSON.stringify(data.result));
+          unityInstance.SendMessage('VKManager', 'GiveMoney10000', JSON.stringify(data.result));
           console.log(`Идентификатор записи: ${data.post_id}`);
         })
         .catch( (e) => {
@@ -134,7 +134,7 @@
         if (data.success) {
           // Приглашение выслано ...
           // ...
-          unityInstance.SendMessage('VKManager', 'GiveMoney30000', JSON.stringify(data.result));
+          unityInstance.SendMessage('VKManager', 'GiveMoney5000', JSON.stringify(data.result));
           // Эти пользователи не получили сообщение
           // console.log('Приглашение не было отослано', data.notSentIds );
         }
