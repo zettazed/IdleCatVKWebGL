@@ -102,6 +102,12 @@
       });
     };
     document.body.appendChild(script);
+    
+    function showRewarded ()
+    {
+      vkBridge.send('VKWebAppShowNativeAds', {ad_format:"reward"}).then(data => {console.log(data);
+      unityInstance.SendMessage('AdsManager', 'BonuesVideosADS', JSON.stringify(data.result));});
+    }
 
     function share ()
     {
