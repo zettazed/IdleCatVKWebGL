@@ -103,12 +103,6 @@
     };
     document.body.appendChild(script);
 
-    function showRewarded ()
-    {
-      vkBridge.send('VKWebAppShowNativeAds', {ad_format:"reward"}).then(data => {console.log(data);
-      unityInstance.SendMessage('AdsManager', 'BonuesVideosADS', JSON.stringify(data.result));});
-    }
-
     function share ()
     {
       vkBridge.send('VKWebAppShowWallPostBox', {
@@ -145,6 +139,24 @@
           // Пользователь нажал «Отмена» в диалоге
         }  
       });
+    }
+
+    vkBridge.subscribe(eventHandler); 
+    function eventHandler(e) {
+
+      const { type, data } = e.detail;
+      switch(type) {
+        case 'VKWebAppViewHide':
+          unityInstance.SendMessage('VKManager', 'AudioOff', JSON.stringify(data.result));
+          break;
+        case 'VKWebAppViewRestore': 
+          unityInstance.SendMessage('VKManager', 'AudioOn', JSON.stringify(data.result)); // Запускаем воспроизведение
+          break;
+                
+          // Обработчики других событий
+          // ...
+
+        }
     }
 
     jQuery(document).ready(function($) // страница прогружена
