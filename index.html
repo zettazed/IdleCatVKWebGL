@@ -153,9 +153,11 @@
       const { type, data } = e.detail;
       switch(type) {
         case 'VKWebAppViewHide':
+          alert('off');
           unityInstance.SendMessage('VKManager', 'AudioOff', JSON.stringify(data.result));
           break;
         case 'VKWebAppViewRestore': 
+          alert('on');
           unityInstance.SendMessage('VKManager', 'AudioOn', JSON.stringify(data.result)); // Запускаем воспроизведение
           break;
                 
