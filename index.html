@@ -13,7 +13,7 @@
 
 <body style="overflow: hidden">
   <div id="unity-container" style="width: 100%; height: 100%">
-    <canvas id="unity-canvas" width=auto height=auto></canvas>
+    <canvas id="unity-canvas" style ="width: auto; height=90%"></canvas>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
       <div id="unity-progress-bar-empty">
@@ -81,13 +81,13 @@
     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
       // To lower canvas resolution on mobile devices to gain some
       // performance, uncomment the following line:
-      // config.devicePixelRatio = 1;
+      config.devicePixelRatio = 1;
 
       canvas.style.width = "100vw";
       canvas.style.height = "100vh";
     } else {
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
+      canvas.style.width = "auto";
+      canvas.style.height = "90%";
     }
 
     loadingBar.style.display = "block";
